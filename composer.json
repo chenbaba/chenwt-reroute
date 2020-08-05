@@ -1,0 +1,17 @@
+{
+    "name": "chenwt/reroute",
+    "description": "重构laravel路由",
+    "keywords": ["laravel", "routes", "profiler", "route", "router"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "小陈",
+            "email": "1098765230@qq.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Chenwt\\Reroute\\": "src"
+        }
+    }
+}
