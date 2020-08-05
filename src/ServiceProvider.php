@@ -20,7 +20,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function boot()
     {
         $configPath = __DIR__ . '/../config/reroute.php';
         $this->mergeConfigFrom($configPath, 'reroute');
