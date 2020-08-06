@@ -22,6 +22,15 @@ class RerouteServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function boot()
     {
+
+    }
+
+    public function register()
+    {
+        $lockFile = __DIR__ . '/re.lock';
+        if (is_file($lockFile)) {
+            return false;
+        }
         $configPath = __DIR__ . '/../config/reroute.php';
         $this->mergeConfigFrom($configPath, 'reroute');
         $routeFile = __DIR__ . '/tmp/UriValidator.php';
@@ -35,6 +44,7 @@ class RerouteServiceProvider extends \Illuminate\Support\ServiceProvider
             dirname(app_path()) . ('/vendor/laravel/framework/src/Illuminate/Routing/Matching/UriValidator.php')=>__DIR__ . '/tmp/UriValidator_bak.php',
             $routeFile => dirname(app_path()) . ('/vendor/laravel/framework/src/Illuminate/Routing/Matching/UriValidator.php')
         ]);
+        file_put_contents(__DIR__ . '/re.lock',1);
     }
 
 }
