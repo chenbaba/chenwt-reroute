@@ -17,7 +17,7 @@ class UriValidator implements ValidatorInterface
     public function matches(Route $route, Request $request)
     {
         if (true === config('reroute.enabled')) {
-            $path = rtrim($request->get(config('reroute.route_params')), '/') ?: '/';
+            $path = '/' . trim($request->get(config('reroute.route_params')), '/') ?: '/';
         } else {
             $path = rtrim($request->getPathInfo(), '/') ?: '/';
         }
